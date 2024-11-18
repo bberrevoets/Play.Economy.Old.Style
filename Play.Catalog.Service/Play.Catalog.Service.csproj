@@ -22,4 +22,8 @@
     <ProjectReference Include="..\Play.Economy.ServiceDefaults\Play.Economy.ServiceDefaults.csproj" />
   </ItemGroup>
 
+  <ItemGroup>
+    <Folder Include="Controllers\" />
+  </ItemGroup>
+
 </Project>

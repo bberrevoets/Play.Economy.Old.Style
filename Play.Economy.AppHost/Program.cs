@@ -1,3 +1,5 @@
+using Projects;
+
 var builder = DistributedApplication.CreateBuilder(args);
 
 //builder.AddContainer("seq", "datalust/seq")
@@ -5,10 +7,10 @@ var builder = DistributedApplication.CreateBuilder(args);
 //    .WithHttpEndpoint(port:5341, targetPort:5341, "Backend")
 //    .WithEnvironment("ACCEPT_EULA","Y");
 
-builder.AddProject<Projects.Play_Catalog_Service>("play-catalog-service")
+builder.AddProject<Play_Catalog_Service>("play-catalog-service")
     .WithExternalHttpEndpoints();
 
-builder.AddProject<Projects.Play_Inventory_Service>("play-inventory-service")
+builder.AddProject<Play_Inventory_Service>("play-inventory-service")
     .WithExternalHttpEndpoints();
 
 builder.Build().Run();
