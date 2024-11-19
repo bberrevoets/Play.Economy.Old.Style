@@ -16,8 +16,8 @@ builder.AddMongoDB("mongodbplay")
 builder.AddProject<Play_Catalog_Service>("play-catalog-service")
     .WithExternalHttpEndpoints();
 
-//builder.AddProject<Play_Inventory_Service>("play-inventory-service")
-//    .WithExternalHttpEndpoints();
+builder.AddProject<Play_Inventory_Service>("play-inventory-service")
+    .WithExternalHttpEndpoints();
 
 #endregion
 
