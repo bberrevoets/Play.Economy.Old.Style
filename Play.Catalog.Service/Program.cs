@@ -17,7 +17,7 @@ builder.Services.AddCors(options =>
 
 builder.AddServiceDefaults();
 
-builder.Services.AddControllers();
+builder.Services.AddControllers(options => { options.SuppressAsyncSuffixInActionNames = false; });
 
 builder.Services.AddOpenApi();
 
