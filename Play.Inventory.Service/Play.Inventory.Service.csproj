@@ -1,14 +1,13 @@
-<Project Sdk="Microsoft.NET.Sdk.Web">
+﻿<Project Sdk="Microsoft.NET.Sdk.Web">
 
   <PropertyGroup>
     <TargetFramework>net9.0</TargetFramework>
-    <Nullable>enable</Nullable>
-    <ImplicitUsings>enable</ImplicitUsings>
   </PropertyGroup>
 
 	<PropertyGroup>
 		<OpenApiGenerateDocuments>false</OpenApiGenerateDocuments>
 		<OpenApiDocumentsDirectory>$(MSBuildProjectDirectory)</OpenApiDocumentsDirectory>
+		<UserSecretsId>4ebd7403-2ef6-427b-a75b-19cd08a96352</UserSecretsId>
 	</PropertyGroup>
 
 	<ItemGroup>
@@ -17,11 +16,16 @@
 			<PrivateAssets>all</PrivateAssets>
 			<IncludeAssets>runtime; build; native; contentfiles; analyzers; buildtransitive</IncludeAssets>
 		</PackageReference>
+    <PackageReference Include="Play.Common" Version="1.0.0" />		
 		<PackageReference Include="Swashbuckle.AspNetCore.SwaggerUI" Version="7.0.0" />
 	</ItemGroup>
 
 	<ItemGroup>
 	  <ProjectReference Include="..\Play.Economy.ServiceDefaults\Play.Economy.ServiceDefaults.csproj" />
+	</ItemGroup>
+
+	<ItemGroup>
+	  <Folder Include="Controllers\" />
 	</ItemGroup>
 
 </Project>
