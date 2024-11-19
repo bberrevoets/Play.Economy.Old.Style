@@ -41,8 +41,7 @@ public class ItemsController : ControllerBase
             Name = createItemDto.Name,
             Description = createItemDto.Description,
             Price = createItemDto.Price,
-            CreatedDate = DateTimeOffset.UtcNow,
-            Id = Guid.CreateVersion7()
+            CreatedDate = DateTimeOffset.UtcNow
         };
 
         await _itemsRepository.CreateAsync(item);

@@ -14,7 +14,10 @@ public class ItemsRepository
 
     public ItemsRepository()
     {
-        var mongoClient = new MongoClient("mongodb://localhost:27017");
+        var credential = MongoCredential.CreateCredential("admin", "admin", "zwaG9xVQFQUJ4as91naFaq");
+        var settings = MongoClientSettings.FromConnectionString("mongodb://localhost:27017");
+        settings.Credential = credential;
+        var mongoClient = new MongoClient(settings);
         var database = mongoClient.GetDatabase("Catalog");
         _dbCollection = database.GetCollection<Item>(CollectionName);
     }
