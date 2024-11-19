@@ -7,6 +7,7 @@
 	<PropertyGroup>
 		<OpenApiGenerateDocuments>false</OpenApiGenerateDocuments>
 		<OpenApiDocumentsDirectory>$(MSBuildProjectDirectory)</OpenApiDocumentsDirectory>
+		<UserSecretsId>82a34e34-4613-4a8f-9260-1a7d63cb1a7d</UserSecretsId>
 	</PropertyGroup>
 
   <ItemGroup>

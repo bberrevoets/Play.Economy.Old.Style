@@ -3,23 +3,17 @@ using System.Collections.Generic;
 using System.Threading.Tasks;
 using MongoDB.Driver;
 using Play.Catalog.Service.Entities;
-using Play.Economy.ServiceDefaults;
 
 namespace Play.Catalog.Service.Repositories;
 
-public class ItemsRepository
+public class ItemsRepository : IItemsRepository
 {
     private const string CollectionName = "items";
     private readonly IMongoCollection<Item> _dbCollection;
     private readonly FilterDefinitionBuilder<Item> _filterBuilder = Builders<Item>.Filter;
 
-    public ItemsRepository()
+    public ItemsRepository(IMongoDatabase database)
     {
-        var credential = MongoCredential.CreateCredential("admin", "admin", Constants.MongoDbPassword);
-        var settings = MongoClientSettings.FromConnectionString("mongodb://localhost:27017");
-        settings.Credential = credential;
-        var mongoClient = new MongoClient(settings);
-        var database = mongoClient.GetDatabase("Catalog");
         _dbCollection = database.GetCollection<Item>(CollectionName);
     }
 
