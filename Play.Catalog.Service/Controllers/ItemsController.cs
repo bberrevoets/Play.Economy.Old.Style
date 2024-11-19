@@ -41,7 +41,8 @@ public class ItemsController : ControllerBase
             Name = createItemDto.Name,
             Description = createItemDto.Description,
             Price = createItemDto.Price,
-            CreatedDate = DateTimeOffset.UtcNow
+            CreatedDate = DateTimeOffset.UtcNow,
+            Id = Guid.CreateVersion7()
         };
 
         await _itemsRepository.CreateAsync(item);
@@ -69,7 +70,7 @@ public class ItemsController : ControllerBase
     public async Task<IActionResult> DeleteAsync(Guid id)
     {
         await _itemsRepository.RemoveAsync(id);
-        
+
         return NoContent();
     }
 }
