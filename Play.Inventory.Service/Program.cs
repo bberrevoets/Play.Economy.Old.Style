@@ -1,6 +1,8 @@
 using Microsoft.AspNetCore.Builder;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Hosting;
+using Play.Common.MongoDb;
+using Play.Inventory.Service.Entities;
 
 var builder = WebApplication.CreateBuilder(args);
 
@@ -17,12 +19,11 @@ builder.Services.AddCors(options =>
 
 builder.AddServiceDefaults();
 
-// Add services to the container.
+builder.Services.AddMongo()
+    .AddMonoRepository<InventoryItem>("inventoryitems");
 
-builder.Services.AddControllers();
-// Learn more about configuring OpenAPI at https://aka.ms/aspnet/openapi
+builder.Services.AddControllers(options => { options.SuppressAsyncSuffixInActionNames = false; });
 builder.Services.AddOpenApi();
-
 
 var app = builder.Build();
 
@@ -30,12 +31,11 @@ app.UseCors("AllowLocalhost");
 
 app.MapDefaultEndpoints();
 
-// Configure the HTTP request pipeline.
 if (app.Environment.IsDevelopment())
 {
     app.MapOpenApi();
 
-    app.UseSwaggerUI(options => { options.SwaggerEndpoint("/openapi/v1.json", "v1"); });
+    app.UseSwaggerUI(options => { options.SwaggerEndpoint("/openapi/v1.json", "Play.Inventory.Service"); });
 }
 
 app.UseHttpsRedirection();
