@@ -25,24 +25,7 @@ public class ItemsController : ControllerBase
     [HttpGet]
     public async Task<ActionResult<IEnumerable<ItemDto>>> GetAsync()
     {
-        _requestCounter++;
-        Console.WriteLine($"Request {_requestCounter}: Starting...");
-
-        if (_requestCounter <= 2)
-        {
-            Console.WriteLine($"Request {_requestCounter}: Delaying...");
-            await Task.Delay(TimeSpan.FromSeconds(10));
-        }
-
-        if (_requestCounter <= 4)
-        {
-            Console.WriteLine($"Request {_requestCounter}: 500 (Internal Server Error)...");
-            return StatusCode(500);
-        }
-        
         var items = (await _itemsRepository.GetAllAsync()).Select(item => item.AsDto());
-        
-        Console.WriteLine($"Request {_requestCounter}: 200 (OK).");
         
         return Ok(items);
     }

@@ -5,4 +5,6 @@
 	<s:Boolean x:Key="/Default/UserDictionary/Words/=inventoryitems/@EntryIndexedValue">True</s:Boolean>
 	<s:Boolean x:Key="/Default/UserDictionary/Words/=mongodbplay/@EntryIndexedValue">True</s:Boolean>
 	<s:Boolean x:Key="/Default/UserDictionary/Words/=playmongodbdata/@EntryIndexedValue">True</s:Boolean>
+	<s:Boolean x:Key="/Default/UserDictionary/Words/=rabbitmqmanagement/@EntryIndexedValue">True</s:Boolean>
+	<s:Boolean x:Key="/Default/UserDictionary/Words/=rabbitmqport/@EntryIndexedValue">True</s:Boolean>
 	<s:Boolean x:Key="/Default/UserDictionary/Words/=VQFQUJ/@EntryIndexedValue">True</s:Boolean></wpf:ResourceDictionary>

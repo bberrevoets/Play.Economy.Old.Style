@@ -1,8 +1,11 @@
+using System;
 using Microsoft.AspNetCore.Builder;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Hosting;
 using Play.Catalog.Service.Entities;
 using Play.Common.MongoDb;
+
+var rabbitmqConnectionString = Environment.GetEnvironmentVariable("ConnectionStrings__rabbitmq");
 
 var builder = WebApplication.CreateBuilder(args);
 

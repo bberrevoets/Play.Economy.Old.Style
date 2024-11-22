@@ -16,6 +16,7 @@
     <PackageReference Include="Aspire.Hosting.MongoDB" Version="9.0.0" />
     <PackageReference Include="Aspire.Hosting.RabbitMQ" Version="9.0.0" />
     <PackageReference Include="Aspire.Hosting.Seq" Version="9.0.0" />
+    <PackageReference Include="Polly.Core" Version="8.5.0" />
   </ItemGroup>
 
   <ItemGroup>
