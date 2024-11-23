@@ -84,7 +84,7 @@ public class ItemsController : ControllerBase
     public async Task<IActionResult> DeleteAsync(Guid id)
     {
         await _itemsRepository.RemoveAsync(id);
-        
+
         await _publishEndpoint.Publish(new CatalogItemDeleted(id));
 
         return NoContent();

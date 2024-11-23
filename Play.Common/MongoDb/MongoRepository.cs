@@ -16,6 +16,8 @@ public class MongoRepository<T> : IRepository<T> where T : IEntity
         _dbCollection = database.GetCollection<T>(collectionName);
     }
 
+    #region
+
     public async Task<IReadOnlyCollection<T>> GetAllAsync()
     {
         return await _dbCollection.Find(_filterBuilder.Empty).ToListAsync();
@@ -57,4 +59,6 @@ public class MongoRepository<T> : IRepository<T> where T : IEntity
         var filter = _filterBuilder.Eq(entity => entity.Id, id);
         await _dbCollection.DeleteOneAsync(filter);
     }
+
+    #endregion
 }
