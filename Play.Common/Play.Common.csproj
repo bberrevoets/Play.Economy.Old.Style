@@ -2,13 +2,24 @@
 
   <PropertyGroup>
     <TargetFramework>net9.0</TargetFramework>
+	  <GeneratePackageOnBuild>false</GeneratePackageOnBuild>
+	  <Version>1.0.1</Version>
+	  <Authors>Bert Berrevoets</Authors>
+	  <Company>Berrevoets Systems</Company>
+	  <Product>Berrevoets.Play.Economy.Common</Product>
+	  <Description>A library for Microservices.</Description>
+	  <PackageTags>Microservices;</PackageTags>
+	  <PackageOutputPath>$(SolutionDir)NugetPackages</PackageOutputPath>
   </PropertyGroup>
 
   <ItemGroup>
+    <PackageReference Include="MassTransit.AspNetCore" Version="7.3.1" />
+    <PackageReference Include="MassTransit.RabbitMQ" Version="7.3.1" />
     <PackageReference Include="Microsoft.Extensions.Configuration" Version="9.0.0" />
     <PackageReference Include="Microsoft.Extensions.Configuration.Binder" Version="9.0.0" />
     <PackageReference Include="Microsoft.Extensions.DependencyInjection" Version="9.0.0" />
     <PackageReference Include="MongoDB.Driver" Version="3.0.0" />
+    <PackageReference Include="Newtonsoft.Json" Version="13.0.3" />
   </ItemGroup>
 
 </Project>

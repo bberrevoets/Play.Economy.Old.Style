@@ -1,38 +1,15 @@
-using System;
-using MassTransit;
-using MassTransit.Definition;
 using Microsoft.AspNetCore.Builder;
-using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Hosting;
 using Play.Catalog.Service.Entities;
+using Play.Common.MassTransit;
 using Play.Common.MongoDb;
-using Play.Common.Settings;
 
 var builder = WebApplication.CreateBuilder(args);
 
-var rabbitmqConnectionString = Environment.GetEnvironmentVariable("ConnectionStrings__rabbitmq");
-
-var serviceSettings = builder.Configuration.GetSection(nameof(ServiceSettings)).Get<ServiceSettings>();
-
 builder.Services.AddMongo()
-    .AddMonoRepository<Item>("items");
-
-builder.Services.AddMassTransit(config =>
-{
-    config.UsingRabbitMq((ctx, cfg) =>
-    {
-        // I am not using the settings of the RabbitMqSettings, because aspire injected an environment variable of the correct connection string.
-        //var rabbitMqSettings =
-        //    builder.Configuration.GetSection(nameof(RabbitMqSettings)).Get<RabbitMqSettings>();
-        //cfg.Host(rabbitMqSettings);
-
-        cfg.Host(rabbitmqConnectionString);
-        cfg.ConfigureEndpoints(ctx, new KebabCaseEndpointNameFormatter(serviceSettings.ServiceName, false));
-    });
-});
-
-builder.Services.AddMassTransitHostedService();
+    .AddMongoRepository<Item>("items")
+    .AddMassTransitWithRabbitMq();
 
 builder.Services.AddCors(options =>
 {

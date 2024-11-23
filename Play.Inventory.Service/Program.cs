@@ -24,7 +24,7 @@ builder.Services.AddCors(options =>
 builder.AddServiceDefaults();
 
 builder.Services.AddMongo()
-    .AddMonoRepository<InventoryItem>("inventoryitems");
+    .AddMongoRepository<InventoryItem>("inventoryitems");
 
 builder.Services.AddHttpClient<CatalogClient>(client => { client.BaseAddress = new Uri("https://localhost:5001"); });
 
