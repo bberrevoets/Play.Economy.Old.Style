@@ -1,10 +1,3 @@
-using Microsoft.AspNetCore.Builder;
-using Microsoft.Extensions.DependencyInjection;
-using Microsoft.Extensions.Hosting;
-using Play.Common.MassTransit;
-using Play.Common.MongoDb;
-using Play.Inventory.Service.Entities;
-
 var builder = WebApplication.CreateBuilder(args);
 
 builder.Services.AddCors(options =>
@@ -20,11 +13,6 @@ builder.Services.AddCors(options =>
 
 builder.AddServiceDefaults();
 
-builder.Services.AddMongo()
-    .AddMongoRepository<InventoryItem>("inventoryitems")
-    .AddMongoRepository<CatalogItem>("catalogitems")
-    .AddMassTransitWithRabbitMq();
-
 builder.Services.AddControllers(options => { options.SuppressAsyncSuffixInActionNames = false; });
 builder.Services.AddOpenApi();
 
@@ -38,7 +26,7 @@ if (app.Environment.IsDevelopment())
 {
     app.MapOpenApi();
 
-    app.UseSwaggerUI(options => { options.SwaggerEndpoint("/openapi/v1.json", "Play.Inventory.Service"); });
+    app.UseSwaggerUI(options => { options.SwaggerEndpoint("/openapi/v1.json", "Play.Identity.Service"); });
 }
 
 app.UseHttpsRedirection();

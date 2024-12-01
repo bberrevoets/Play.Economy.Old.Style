@@ -1,7 +1,6 @@
-using Projects;
-
-using System.Net.Sockets;
 using System.Net;
+using System.Net.Sockets;
+using Projects;
 
 var builder = DistributedApplication.CreateBuilder(args);
 
@@ -34,8 +33,20 @@ var inventoryService = builder.AddProject<Play_Inventory_Service>("play-inventor
     .WithExternalHttpEndpoints()
     .WithReference(rabbitmq);
 
+var identityService = builder.AddProject<Play_Identity_Service>("play-identity-service")
+    .WaitFor(mongodb)
+    .WaitFor(rabbitmq)
+    .WithExternalHttpEndpoints()
+    .WithReference(rabbitmq);
+
+#endregion
+
+#region [ My Frontends ]
+
 builder.AddNpmApp("Frontend", "../Play.Economy.Frontend/")
     .WaitFor(catalogService)
+    .WaitFor(inventoryService)
+    .WaitFor(identityService)
     .WithEnvironment("REACT_APP_RABBITMQ_URL", $"http://localhost:{managementPort.ToString()}")
     .WithHttpEndpoint(env: "PORT", port: 3001)
     .PublishAsDockerFile();
@@ -46,6 +57,8 @@ builder.Build().Run();
 
 return;
 
+#region [ Helpers ]
+
 static int GetRandomUnusedPort()
 {
     var listener = new TcpListener(IPAddress.Loopback, 0);
@@ -54,3 +67,5 @@ static int GetRandomUnusedPort()
     listener.Stop();
     return port;
 }
+
+#endregion

@@ -25,7 +25,7 @@ Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Play.Inventory", "Play.Inve
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Play.Catalog.Contracts", "Play.Catalog.Contracts\Play.Catalog.Contracts.csproj", "{310DED35-AD58-49E1-97EC-D54F1641A27A}"
 EndProject
-Project("{E24C65DC-7377-472B-9ABA-BC803B73C61A}") = "Play.Economy.Frontend", "Play.Economy.Frontend\", "{291BAFF3-5B4F-40A7-A598-FDED3789D1A9}"
+Project("{E24C65DC-7377-472B-9ABA-BC803B73C61A}") = "Play.Economy.Frontend(1)", "Play.Economy.Frontend\", "{291BAFF3-5B4F-40A7-A598-FDED3789D1A9}"
 	ProjectSection(WebsiteProperties) = preProject
 		TargetFrameworkMoniker = ".NETFramework,Version%3Dv4.8.1"
 		Debug.AspNetCompiler.VirtualPath = "/localhost_61707"
@@ -45,6 +45,12 @@ Project("{E24C65DC-7377-472B-9ABA-BC803B73C61A}") = "Play.Economy.Frontend", "Pl
 		VWDPort = "61707"
 		SlnRelativePath = "Play.Economy.Frontend\"
 	EndProjectSection
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Play.Identity", "Play.Identity", "{BC8A8B64-C951-45F9-AD92-C50D4CA2DFD2}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Play.Identity.Service", "Play.Identity.Service\Play.Identity.Service.csproj", "{26772878-C81E-4898-A705-BBC078CA4AB1}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Frontends", "Frontends", "{DF9C0F46-9C36-428B-9B6B-825795A468D8}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -79,6 +85,10 @@ Global
 		{291BAFF3-5B4F-40A7-A598-FDED3789D1A9}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{291BAFF3-5B4F-40A7-A598-FDED3789D1A9}.Release|Any CPU.ActiveCfg = Debug|Any CPU
 		{291BAFF3-5B4F-40A7-A598-FDED3789D1A9}.Release|Any CPU.Build.0 = Debug|Any CPU
+		{26772878-C81E-4898-A705-BBC078CA4AB1}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{26772878-C81E-4898-A705-BBC078CA4AB1}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{26772878-C81E-4898-A705-BBC078CA4AB1}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{26772878-C81E-4898-A705-BBC078CA4AB1}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
@@ -92,5 +102,8 @@ Global
 		{4EB69281-8C40-404A-BFF0-817DC7BFA372} = {7C11C507-3BB0-4E79-8D54-DE19DDC5028D}
 		{F01643D9-FF70-4F40-9D7B-30142E7AC3A0} = {7C11C507-3BB0-4E79-8D54-DE19DDC5028D}
 		{310DED35-AD58-49E1-97EC-D54F1641A27A} = {4EB69281-8C40-404A-BFF0-817DC7BFA372}
+		{291BAFF3-5B4F-40A7-A598-FDED3789D1A9} = {DF9C0F46-9C36-428B-9B6B-825795A468D8}
+		{BC8A8B64-C951-45F9-AD92-C50D4CA2DFD2} = {7C11C507-3BB0-4E79-8D54-DE19DDC5028D}
+		{26772878-C81E-4898-A705-BBC078CA4AB1} = {BC8A8B64-C951-45F9-AD92-C50D4CA2DFD2}
 	EndGlobalSection
 EndGlobal
