@@ -11,11 +11,13 @@ var managementPort = GetRandomUnusedPort();
 var mongodb = builder.AddMongoDB("mongodbplay")
     .WithHttpEndpoint(27017, 27017, "mongodb")
     .WithDataVolume("mongo_play")
-    .WithMongoExpress();
+    .WithMongoExpress()
+    .WithLifetime(ContainerLifetime.Persistent);
 
 var rabbitmq = builder.AddRabbitMQ("rabbitmq")
     .WithManagementPlugin(managementPort)
-    .WithDataVolume("rabbitmq_play");
+    .WithDataVolume("rabbitmq_play")
+    .WithLifetime(ContainerLifetime.Persistent);
 
 #endregion
 

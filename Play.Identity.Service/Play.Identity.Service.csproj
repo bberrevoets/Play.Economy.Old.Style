@@ -9,6 +9,8 @@
 
 	<ItemGroup>
 		<PackageReference Include="AspNetCore.Identity.MongoDbCore" Version="6.0.0" />
+		<PackageReference Include="Duende.IdentityServer" Version="7.0.8" />
+		<PackageReference Include="Duende.IdentityServer.AspNetIdentity" Version="7.0.8" />
 		<PackageReference Include="Microsoft.AspNetCore.Identity.UI" Version="9.0.0" />
 		<PackageReference Include="Microsoft.AspNetCore.OpenApi" Version="9.0.0" />
 		<PackageReference Include="Microsoft.Extensions.ApiDescription.Server" Version="9.0.0">

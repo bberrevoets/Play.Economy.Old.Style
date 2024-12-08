@@ -19,7 +19,7 @@ namespace Play.Identity.Service.Areas.Identity.Pages.Account;
 public class RegisterModel : PageModel
 {
     private const decimal StartingGil = 100;
-    
+
     private readonly IEmailSender _emailSender;
     private readonly IUserEmailStore<ApplicationUser> _emailStore;
     private readonly ILogger<RegisterModel> _logger;
