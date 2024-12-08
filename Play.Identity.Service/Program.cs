@@ -1,8 +1,11 @@
 using System;
+
 using Microsoft.AspNetCore.Builder;
+using Microsoft.AspNetCore.HttpOverrides;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Hosting;
+
 using MongoDB.Bson;
 using MongoDB.Bson.Serialization;
 using MongoDB.Bson.Serialization.Serializers;
@@ -46,13 +49,22 @@ builder.Services.AddIdentityServer(options =>
     })
     .AddAspNetIdentity<ApplicationUser>()
     .AddInMemoryApiScopes(identityServerSettings.ApiScopes)
+    .AddInMemoryApiResources(identityServerSettings.ApiResources)
     .AddInMemoryClients(identityServerSettings.Clients)
-    .AddInMemoryIdentityResources(identityServerSettings.IdentityResources);
+    .AddInMemoryIdentityResources(identityServerSettings.IdentityResources)
+    .AddDeveloperSigningCredential();
 
 builder.Services.AddControllers(options => { options.SuppressAsyncSuffixInActionNames = false; });
 builder.Services.AddOpenApi();
 
 var app = builder.Build();
+
+app.UseForwardedHeaders(new ForwardedHeadersOptions
+{
+    ForwardedHeaders = ForwardedHeaders.XForwardedFor | ForwardedHeaders.XForwardedHost | ForwardedHeaders.XForwardedProto,
+    RequireHeaderSymmetry = false,
+    ForwardLimit = null
+});
 
 app.UseCors("AllowLocalhost");
 
