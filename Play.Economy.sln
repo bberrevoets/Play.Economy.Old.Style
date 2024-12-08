@@ -25,7 +25,7 @@ Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Play.Inventory", "Play.Inve
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Play.Catalog.Contracts", "Play.Catalog.Contracts\Play.Catalog.Contracts.csproj", "{310DED35-AD58-49E1-97EC-D54F1641A27A}"
 EndProject
-Project("{E24C65DC-7377-472B-9ABA-BC803B73C61A}") = "Play.Economy.Frontend(1)", "Play.Economy.Frontend\", "{291BAFF3-5B4F-40A7-A598-FDED3789D1A9}"
+Project("{E24C65DC-7377-472B-9ABA-BC803B73C61A}") = "Play.Economy.Frontend", "Play.Economy.Frontend\", "{291BAFF3-5B4F-40A7-A598-FDED3789D1A9}"
 	ProjectSection(WebsiteProperties) = preProject
 		TargetFrameworkMoniker = ".NETFramework,Version%3Dv4.8.1"
 		Debug.AspNetCompiler.VirtualPath = "/localhost_61707"
