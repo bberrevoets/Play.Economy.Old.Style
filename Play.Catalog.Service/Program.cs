@@ -4,6 +4,7 @@ using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Hosting;
 using Play.Catalog.Service.Entities;
+using Play.Common.Identity;
 using Play.Common.MassTransit;
 using Play.Common.MongoDb;
 using Play.Common.Settings;
@@ -29,12 +30,7 @@ builder.AddServiceDefaults();
 
 var serviceSettings = builder.Configuration.GetSection(nameof(ServiceSettings)).Get<ServiceSettings>();
 
-builder.Services.AddAuthentication(JwtBearerDefaults.AuthenticationScheme)
-    .AddJwtBearer(options =>
-    {
-        options.Authority = "https://localhost:5003";
-        options.Audience = serviceSettings.ServiceName;
-    });
+builder.Services.AddJwtBearerAuthentication();
 
 builder.Services.AddControllers(options => { options.SuppressAsyncSuffixInActionNames = false; });
 
